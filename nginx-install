@@ -1,0 +1,19 @@
+kubectl create deployment nginx --image=nginx
+
+kubectl expose deployment nginx --port=80 --type=NodePort
+
+kubectl get pods
+# root@kube-master:/home/itadmin# kubectl get pods
+# NAME                    READY   STATUS              RESTARTS   AGE
+# nginx-bf5d5cf98-rrtt8   0/1     ContainerCreating   0          13s
+
+kubectl get svc
+# root@kube-master:/home/itadmin# kubectl get svc
+# NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+# kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP        50m
+# nginx        NodePort    10.100.90.153   <none>        80:31682/TCP   33s
+
+# open browser
+http:\\'kube server ip':31682
+http:\\'kube worker ip':31682
+
