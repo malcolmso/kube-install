@@ -109,6 +109,12 @@ sudo sysctl -p
 # 5 ** Now run the command that was provided to run attach the worker node
 # line 62 Step 5
 
+# 6 Label the worker node (perform on the master)
+kubectl label nodes kube-work01 node-role.kubernetes.io/worker=true
+kubectl get nodes --show-labels
+
+
+
 
 
 
